@@ -1,0 +1,62 @@
+{
+  "name": "event-bus-ts",
+  "version": "0.0.1",
+  "description": "event bus for typescript and react",
+  "keywords": [
+    "event",
+    "event-bus",
+    "react",
+    "typescript"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "Chua Kang Ming",
+    "url": "https://github.com/kambing86"
+  },
+  "files": [
+    "dist",
+    "module"
+  ],
+  "main": "dist/index.js",
+  "module": "module/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kambing86/event-bus-ts.git"
+  },
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc --declaration && tsc --declaration -p tsconfig-module.json",
+    "build:strict": "tsc --declaration --noImplicitAny && tsc --declaration -p tsconfig-module.json --noImplicitAny",
+    "clean": "del dist",
+    "prepublish": "npm run build",
+    "prerelease": "yarn build",
+    "release": "standard-version",
+    "start": "npm run build -- -w",
+    "lint": "eslint 'src/**/*.{j,t}s{,x}'",
+    "lint:fix": "eslint --fix 'src/**/*.{j,t}s{,x}'"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.13",
+    "@types/react": "^18.3.3",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
+    "@typescript-eslint/parser": "^7.17.0",
+    "del-cli": "^3.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "email": "kambing860210@gmail.com",
+  "packageManager": "yarn@4.3.1",
+  "peerDependencies": {
+    "react": "^18"
+  }
+}
