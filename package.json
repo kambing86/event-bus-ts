@@ -1,5 +1,5 @@
 {
-  "name": "event-bus-ts",
+  "name": "@kambing86/event-bus-ts",
   "version": "0.0.1",
   "description": "event bus for typescript and react",
   "keywords": [

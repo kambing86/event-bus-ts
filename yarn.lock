@@ -108,6 +108,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kambing86/event-bus-ts@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@kambing86/event-bus-ts@workspace:."
+  dependencies:
+    "@types/node": "npm:^20.14.13"
+    "@types/react": "npm:^18.3.3"
+    "@typescript-eslint/eslint-plugin": "npm:^7.17.0"
+    "@typescript-eslint/eslint-plugin-tslint": "npm:^7.0.2"
+    "@typescript-eslint/parser": "npm:^7.17.0"
+    del-cli: "npm:^3.0.0"
+    eslint: "npm:^8.57.0"
+    eslint-config-airbnb-base: "npm:^15.0.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-import: "npm:^2.29.1"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    prettier: "npm:^3.3.3"
+    standard-version: "npm:^9.5.0"
+    typescript: "npm:^5.5.4"
+  peerDependencies:
+    react: ^18
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1597,29 +1620,6 @@ __metadata:
   checksum: 10c0/9a2fe69a41bfdade834ba7c42de4723c97ec776e40656919c62cbd13607c45e127a003f05f724a1ea55e5029a4cf2de444b13009f2af71271e42d93a637137c7
   languageName: node
   linkType: hard
-
-"event-bus-ts@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "event-bus-ts@workspace:."
-  dependencies:
-    "@types/node": "npm:^20.14.13"
-    "@types/react": "npm:^18.3.3"
-    "@typescript-eslint/eslint-plugin": "npm:^7.17.0"
-    "@typescript-eslint/eslint-plugin-tslint": "npm:^7.0.2"
-    "@typescript-eslint/parser": "npm:^7.17.0"
-    del-cli: "npm:^3.0.0"
-    eslint: "npm:^8.57.0"
-    eslint-config-airbnb-base: "npm:^15.0.0"
-    eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-prettier: "npm:^5.2.1"
-    prettier: "npm:^3.3.3"
-    standard-version: "npm:^9.5.0"
-    typescript: "npm:^5.5.4"
-  peerDependencies:
-    react: ^18
-  languageName: unknown
-  linkType: soft
 
 "fast-deep-equal@npm:^3.1.1, fast-deep-equal@npm:^3.1.3":
   version: 3.1.3
