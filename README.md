@@ -12,16 +12,52 @@ npm install --save-dev event-bus-ts
 
 <h2 align="center">Usage</h2>
 
-<!-- ```js
-import { setInterval, setTimeout, clearInterval, clearTimeout } from 'requestanimationframe-timer';
+1) add `@kambing86/event-bus-ts` by installing `npm install @kambing86/event-bus-ts`
+2) create a file for event bus, for eg. "src/util/eventBus.ts"
+```ts
+import { createEventBus, createUseEventBus } from '@kambing86/event-bus-ts';
 
-const id_1 = setTimeout((a) => console.log(a), 1000, '1000 ms timeout');
-const id_2 = setInterval((a) => console.log(a), 2000, '2000 ms interval');
-setTimeout(() => {
-  clearTimeout(id_1);
-  clearInterval(id_2);
-}, 10000);
-``` -->
+// string enum for Event
+export enum EventType {
+  ADD_TODO = 'addTodo',
+  REMOVE_TODO = 'removeTodo',
+}
+
+// or just const
+export const EventType = {
+  ADD_TODO: 'addTodo',
+  REMOVE_TODO: 'removeTodo',
+} as const;
+
+// define the payload data for Event
+export type EventDataMapping = {
+  [EventType.ADD_TODO]: { id: number; text: string };
+  [EventType.REMOVE_TODO]: number;
+};
+
+export const eventBus = createEventBus<EventDataMapping>();
+
+export const useEventBus = createUseEventBus<EventDataMapping>(eventBus);
+```
+3) then use it in React component
+```tsx
+function NewTodo() {
+  // ...
+  return <button onClick={() => eventBus.dispatch(EventType.ADD_TODO, newTodo)}>Add new</button>
+}
+
+function TodoList() {
+  const [todoList, setTodoList] = useState([]);
+
+  // ...
+
+  useEventBus(EventType.ADD_TODO, (newTodo) =>
+    setTodoList((prev) => [...prev, newTodo]),
+  );
+
+  return <div>{todoList.map((todo) => <div>{todo.text}</div>)}</div>
+}
+```
 
 <h2 align="center">Maintainers</h2>
 
