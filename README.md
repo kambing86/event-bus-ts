@@ -7,7 +7,7 @@
 <h2 align="center">Install</h2>
 
 ```bash
-npm install --save-dev event-bus-ts
+npm install --save-dev @kambing86/event-bus-ts
 ```
 
 <h2 align="center">Usage</h2>
