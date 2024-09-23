@@ -27,7 +27,7 @@
     "prebuild": "npm run clean",
     "build": "tsc --declaration && tsc --declaration -p tsconfig-module.json",
     "build:strict": "tsc --declaration --noImplicitAny && tsc --declaration -p tsconfig-module.json --noImplicitAny",
-    "clean": "del dist",
+    "clean": "rimraf dist",
     "prepublish": "npm run build",
     "prerelease": "yarn build",
     "release": "standard-version",
@@ -36,26 +36,26 @@
     "lint:fix": "eslint --fix 'src/**/*.{j,t}s{,x}'"
   },
   "devDependencies": {
-    "@types/node": "^20.14.13",
-    "@types/react": "^18.3.3",
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.8",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
-    "@typescript-eslint/parser": "^7.17.0",
-    "del-cli": "^3.0.0",
-    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "engines": {
     "node": ">= 20"
   },
   "email": "kambing860210@gmail.com",
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.5.0",
   "peerDependencies": {
     "react": "^18"
   }
