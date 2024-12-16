@@ -36,20 +36,20 @@
     "lint:fix": "eslint --fix 'src/**/*.{j,t}s{,x}'"
   },
   "devDependencies": {
-    "@types/node": "^20.16.5",
-    "@types/react": "^18.3.8",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.16",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": ">= 20"
