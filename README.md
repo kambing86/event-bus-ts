@@ -35,7 +35,7 @@ export type EventDataMapping = {
   [EventType.REMOVE_TODO]: number;
 };
 
-export const eventBus = createEventBus<EventDataMapping>();
+export const eventBus = createEventBus<EventDataMapping>({ events: EventType });
 
 export const useEventBus = createUseEventBus<EventDataMapping>(eventBus);
 ```
@@ -44,6 +44,8 @@ export const useEventBus = createUseEventBus<EventDataMapping>(eventBus);
 function NewTodo() {
   // ...
   return <button onClick={() => eventBus.dispatch(EventType.ADD_TODO, newTodo)}>Add new</button>
+  // or
+  return <button onClick={() => eventBus.actions.addTodo(newTodo)}>Add new</button>
 }
 
 function TodoList() {

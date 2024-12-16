@@ -1,6 +1,23 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function createEventBus<Mapping extends { [key: string]: any }>() {
-  const eventListenersMap = {} as Record<keyof Mapping, Set<(data: Mapping[keyof Mapping]) => void> | undefined>;
+type AllowedPayload = any;
+
+type Events<Mapping extends { [key: string]: AllowedPayload }> = {
+  [key: string]: keyof Mapping;
+};
+
+type ActionsMapping<Mapping extends { [key: string]: AllowedPayload }, E extends Events<Mapping>> = {
+  [Key in E[keyof E]]: Mapping[Key] extends undefined ? () => void : (payload: Mapping[Key]) => void;
+};
+
+export function createEventBus<Mapping extends { [key: string]: AllowedPayload }>({
+  events,
+}: {
+  events: Events<Mapping>;
+}) {
+  type ListenerMap = {
+    [Key in keyof Mapping]: Set<(data: Mapping[Key]) => void> | undefined;
+  };
+  const eventListenersMap = {} as ListenerMap;
 
   const eventBus = {
     dispatch<E extends keyof Mapping, D extends Mapping[E]>(
@@ -9,7 +26,9 @@ export function createEventBus<Mapping extends { [key: string]: any }>() {
     ) {
       const eventListeners = eventListenersMap[event];
       if (eventListeners == null) return;
-      eventListeners.forEach((callback) => callback(args[0]));
+      for (const callback of eventListeners) {
+        callback(args[0]);
+      }
     },
     subscribe<E extends keyof Mapping, D extends Mapping[E]>(
       event: E,
@@ -29,7 +48,18 @@ export function createEventBus<Mapping extends { [key: string]: any }>() {
     },
   };
 
-  return eventBus;
+  const actions = {} as ActionsMapping<Mapping, Events<Mapping>>;
+
+  const eventTypes = Object.values(events);
+  for (const eventType of eventTypes) {
+    type E = typeof eventType;
+    type Actions = Mapping[E] extends undefined ? () => void : (payload: Mapping[E]) => void;
+    const action = (<D extends Mapping[E]>(...args: D extends undefined ? [undefined?] : [D]) =>
+      eventBus.dispatch(eventType, ...args)) as Actions;
+    actions[eventType] = action;
+  }
+
+  return { ...eventBus, actions };
 }
 
 export { createUseEventBus } from './hook';
