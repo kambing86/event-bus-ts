@@ -21,7 +21,7 @@
   "module": "module/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kambing86/event-bus-ts.git"
+    "url": "git+https://github.com/kambing86/event-bus-ts.git"
   },
   "scripts": {
     "prebuild": "npm run clean",
