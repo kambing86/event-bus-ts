@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { createEventBus } from '.';
+import type { createEventBus } from '.';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type EventBusType<Mapping extends { [key: string]: any }> = ReturnType<typeof createEventBus<Mapping>>;
