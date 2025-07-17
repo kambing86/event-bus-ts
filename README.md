@@ -38,6 +38,16 @@ export type EventDataMapping = {
 export const eventBus = createEventBus<EventDataMapping>();
 
 export const useEventBus = createUseEventBus<EventDataMapping>(eventBus);
+
+const unsubscribe = eventBus.subscribe(EventType.ADD_TODO, (todo) => {
+  console.log(`${todo.text} is added`);
+});
+
+eventBus.dispatch(EventType.ADD_TODO, { id: 1, text: 'Learn TypeScript' });
+
+setTimeout(() => {
+  unsubscribe();
+}, 0);
 ```
 3) then use it in React component
 ```tsx
