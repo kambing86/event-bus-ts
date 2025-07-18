@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://github.com/kambing86/event-bus-ts/compare/v2.0.3...v2.0.4) (2025-07-18)
+
+
+### Bug Fixes
+
+* type module in package.json ([4f33f80](https://github.com/kambing86/event-bus-ts/commit/4f33f8034154a8d576b6030efe8f56720c97f4e1))
+
 ### [2.0.3](https://github.com/kambing86/event-bus-ts/compare/v2.0.2...v2.0.3) (2025-07-18)
 
 
