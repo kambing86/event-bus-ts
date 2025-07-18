@@ -13,57 +13,44 @@
     "name": "Chua Kang Ming",
     "url": "https://github.com/kambing86"
   },
-  "files": [
-    "dist",
-    "module",
-    "src"
-  ],
-  "main": "dist/index.js",
-  "module": "module/index.js",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "check": "biome check --write",
+    "dev": "rslib build --watch",
+    "format": "biome format --write"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kambing86/event-bus-ts.git"
   },
-  "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc --declaration && tsc --declaration -p tsconfig-module.json",
-    "build:strict": "tsc --declaration --noImplicitAny && tsc --declaration -p tsconfig-module.json --noImplicitAny",
-    "clean": "rimraf dist",
-    "prepublish": "npm run build",
-    "prerelease": "yarn build",
-    "release": "standard-version",
-    "start": "npm run build -- -w",
-    "lint": "eslint 'src/**/*.{j,t}s{,x}'",
-    "lint:fix": "eslint --fix 'src/**/*.{j,t}s{,x}'"
-  },
   "devDependencies": {
-    "@types/node": "^20.16.5",
-    "@types/react": "^18.3.8",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^7.0.2",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
-    "standard-version": "^9.5.0",
-    "typescript": "^5.6.2"
+    "@biomejs/biome": "2.0.6",
+    "@rslib/core": "^0.10.6",
+    "@types/node": "^22.16.4",
+    "@types/react": "^18.3.16",
+    "react": "^19.1.0",
+    "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">= 20"
+    "node": ">= 22"
   },
   "email": "kambing860210@gmail.com",
-  "packageManager": "yarn@4.5.0",
   "peerDependencies": {
     "react": "^18"
-  }
+  },
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
 }
