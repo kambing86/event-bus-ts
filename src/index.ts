@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AllowedPayload = any;
+// biome-ignore lint/suspicious/noExplicitAny: any payload type is allowed
+export type AllowedPayload = any;
 
 type Events<Mapping extends { [key: string]: AllowedPayload }> = {
   [key: string]: keyof Mapping;
@@ -43,7 +43,6 @@ export function createEventBus<Mapping extends { [key: string]: AllowedPayload }
     ) {
       let eventListeners = eventListenersMap[event];
       if (eventListeners == null) {
-        // eslint-disable-next-line no-multi-assign
         eventListeners = eventListenersMap[event] = new Set();
       }
       eventListeners.add(callback);
