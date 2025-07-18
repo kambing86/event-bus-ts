@@ -13,6 +13,7 @@
     "name": "Chua Kang Ming",
     "url": "https://github.com/kambing86"
   },
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
