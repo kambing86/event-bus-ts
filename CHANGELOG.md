@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/kambing86/event-bus-ts/compare/v2.0.0...v2.0.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* return subscription object and update README.md ([d813c7f](https://github.com/kambing86/event-bus-ts/commit/d813c7f4cf77045177ea0887e2aab7a5a22ae968))
+
 ## [2.0.0](https://github.com/kambing86/event-bus-ts/compare/v1.0.0...v2.0.0) (2024-12-16)
 
 
