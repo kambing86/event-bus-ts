@@ -14,6 +14,13 @@ export function createEventBus<Mapping extends { [key: string]: AllowedPayload }
 }: {
   events: Events<Mapping>;
 }) {
+  // check duplicate events
+  const eventTypes = Object.values(events);
+  const uniqueEventTypes = new Set(eventTypes);
+  if (uniqueEventTypes.size !== eventTypes.length) {
+    throw new Error('Duplicate event types found in the event bus.');
+  }
+
   type ListenerMap = {
     [Key in keyof Mapping]: Set<(data: Mapping[Key]) => void> | undefined;
   };
@@ -44,13 +51,12 @@ export function createEventBus<Mapping extends { [key: string]: AllowedPayload }
         if (eventListeners == null) return;
         eventListeners.delete(callback);
       };
-      return unsubscribe;
+      return { unsubscribe };
     },
   };
 
   const actions = {} as ActionsMapping<Mapping, Events<Mapping>>;
 
-  const eventTypes = Object.values(events);
   for (const eventType of eventTypes) {
     type E = typeof eventType;
     type Actions = Mapping[E] extends undefined ? () => void : (payload: Mapping[E]) => void;

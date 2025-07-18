@@ -38,6 +38,24 @@ export type EventDataMapping = {
 export const eventBus = createEventBus<EventDataMapping>({ events: EventType });
 
 export const useEventBus = createUseEventBus<EventDataMapping>(eventBus);
+
+const subscription = eventBus.subscribe(EventType.ADD_TODO, (todo) => {
+  console.log(`${todo.text} is added`);
+});
+
+// Dispatch an event with payload
+eventBus.dispatch(EventType.ADD_TODO, { id: 1, text: 'Learn TypeScript' });
+
+// or use the actions with typescript hint
+eventBus.actions.addTodo({ id: 2, text: 'Learn Event Bus' });
+
+// or use actions with the enum / const
+eventBus.actions[EventType.ADD_TODO]({ id: 3, text: 'Learn React' });
+
+// Unsubscribe from the event
+setTimeout(() => {
+  subscription.unsubscribe();
+}, 0);
 ```
 3) then use it in React component
 ```tsx

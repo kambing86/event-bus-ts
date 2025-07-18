@@ -12,6 +12,6 @@ export function createUseEventBus<Mapping extends { [key: string]: any }>(eventB
   ) {
     const callbackRef = useRef(callback);
     callbackRef.current = callback;
-    useEffect(() => eventBus.subscribe(event, callbackRef.current), [event]);
+    useEffect(() => eventBus.subscribe(event, callbackRef.current).unsubscribe, [event]);
   };
 }
