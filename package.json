@@ -20,6 +20,12 @@
   ],
   "main": "dist/index.js",
   "module": "module/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kambing86/event-bus-ts.git"
