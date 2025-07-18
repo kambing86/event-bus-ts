@@ -1,5 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function createEventBus<Mapping extends { [key: string]: any }>() {
+// biome-ignore lint/suspicious/noExplicitAny: any payload type is allowed
+export type AllowedPayload = any;
+
+export function createEventBus<Mapping extends { [key: string]: AllowedPayload }>() {
   const eventListenersMap = {} as Record<keyof Mapping, Set<(data: Mapping[keyof Mapping]) => void> | undefined>;
 
   const eventBus = {
