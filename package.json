@@ -22,8 +22,8 @@
   "module": "module/index.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./module/index.d.ts",
+      "default": "./module/index.js"
     }
   },
   "repository": {
