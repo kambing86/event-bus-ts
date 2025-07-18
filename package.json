@@ -30,18 +30,20 @@
     "build": "rslib build",
     "check": "biome check --write",
     "dev": "rslib build --watch",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kambing86/event-bus-ts.git"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.6",
+    "@biomejs/biome": "2.1.2",
     "@rslib/core": "^0.10.6",
     "@types/node": "^22.16.4",
     "@types/react": "^18.3.16",
     "react": "^19.1.0",
+    "standard-version": "^9.5.0",
     "typescript": "^5.8.3"
   },
   "engines": {
